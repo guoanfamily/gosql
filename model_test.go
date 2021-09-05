@@ -11,7 +11,7 @@ import (
 
 	"github.com/jmoiron/sqlx"
 
-	"github.com/ilibs/gosql/v2/internal/example/models"
+	"github.com/guoanfamily/gosql/v2/internal/example/models"
 )
 
 var (

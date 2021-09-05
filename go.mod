@@ -1,4 +1,4 @@
-module github.com/ilibs/gosql/v2
+module github.com/guoanfamily/gosql/v2
 
 go 1.13
 

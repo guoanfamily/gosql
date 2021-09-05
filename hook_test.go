@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ilibs/gosql/v2/internal/example/models"
+	"github.com/guoanfamily/gosql/v2/internal/example/models"
 )
 
 type hookUser struct {

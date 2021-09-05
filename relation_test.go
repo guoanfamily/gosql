@@ -3,7 +3,7 @@ package gosql
 import (
 	"testing"
 
-	"github.com/ilibs/gosql/v2/internal/example/models"
+	"github.com/guoanfamily/gosql/v2/internal/example/models"
 )
 
 type UserMomentRelation struct {

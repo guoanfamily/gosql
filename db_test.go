@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ilibs/gosql/v2/internal/example/models"
+	"github.com/guoanfamily/gosql/v2/internal/example/models"
 )
 
 func TestShowSql(t *testing.T) {

@@ -1,14 +1,14 @@
 # gosql
 The package based on [sqlx](https://github.com/jmoiron/sqlx), It's simple and keep simple
 
-<a href="https://github.com/ilibs/gosql/actions"><img src="https://github.com/ilibs/gosql/workflows/gosql/badge.svg" alt="Build Status"></a>
-<a href="https://codecov.io/gh/ilibs/gosql"><img src="https://codecov.io/gh/ilibs/gosql/branch/master/graph/badge.svg" alt="codecov"></a>
-<a href="https://goreportcard.com/report/github.com/ilibs/gosql"><img src="https://goreportcard.com/badge/github.com/ilibs/gosql" alt="Go Report Card
+<a href="https://github.com/guoanfamily/gosql/actions"><img src="https://github.com/guoanfamily/gosql/workflows/gosql/badge.svg" alt="Build Status"></a>
+<a href="https://codecov.io/gh/guoanfamily/gosql"><img src="https://codecov.io/gh/guoanfamily/gosql/branch/master/graph/badge.svg" alt="codecov"></a>
+<a href="https://goreportcard.com/report/github.com/guoanfamily/gosql"><img src="https://goreportcard.com/badge/github.com/guoanfamily/gosql" alt="Go Report Card
 "></a>
-<a href="https://godoc.org/github.com/ilibs/gosql"><img src="https://godoc.org/github.com/ilibs/gosql?status.svg" alt="GoDoc"></a>
+<a href="https://godoc.org/github.com/guoanfamily/gosql"><img src="https://godoc.org/github.com/guoanfamily/gosql?status.svg" alt="GoDoc"></a>
 <a href="https://opensource.org/licenses/mit-license.php" rel="nofollow"><img src="https://badges.frapsoft.com/os/mit/mit.svg?v=103"></a>
 
-⚠️ Because of some disruptive changes, The current major version is upgraded to V2，If you continue with V1, you can check out the v1 branches [https://github.com/ilibs/gosql/tree/v1](https://github.com/ilibs/gosql/tree/v1)
+⚠️ Because of some disruptive changes, The current major version is upgraded to V2，If you continue with V1, you can check out the v1 branches [https://github.com/guoanfamily/gosql/tree/v1](https://github.com/guoanfamily/gosql/tree/v1)
 
 ## V2 ChangeLog
 - Remove the second argument to the Model() and Table() functions and replace it with WithTx(tx)
@@ -24,7 +24,7 @@ Connection database and use sqlx original function,See the https://github.com/jm
 ```go
 import (
     _ "github.com/go-sql-driver/mysql" //mysql driver
-    "github.com/ilibs/gosql/v2"
+    "github.com/guoanfamily/gosql/v2"
 )
 
 func main(){
