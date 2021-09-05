@@ -19,3 +19,7 @@ func (mysqlDialect) GetName() string {
 func (mysqlDialect) Quote(key string) string {
 	return fmt.Sprintf("`%s`", key)
 }
+
+func (mysqlDialect) Count() {
+
+}

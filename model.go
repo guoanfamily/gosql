@@ -167,6 +167,7 @@ func (b *Builder) OrderBy(str string) *Builder {
 }
 
 func (b *Builder) reflectModel(autoTime []string) map[string]reflect.Value {
+	b.dialect.Count()
 	fields := mapper.FieldMap(b.modelReflectValue)
 	if autoTime != nil {
 		structAutoTime(fields, autoTime)
@@ -188,6 +189,7 @@ func (b *Builder) Get(zeroValues ...string) (err error) {
 	b.initModel()
 	m := zeroValueFilter(b.reflectModel(nil), zeroValues)
 	// If where is empty, the primary key where condition is generated automatically
+
 	b.generateWhere(m)
 
 	if b.modelWrapper != nil {
@@ -215,10 +217,9 @@ func (b *Builder) Create() (lastInsertId int64, err error) {
 	if hook.HasError() {
 		return 0, hook.Error()
 	}
-
 	fields := b.reflectModel(AUTO_CREATE_TIME_FIELDS)
 	m := structToMap(fields)
-
+	delete(m, "id")
 	result, err := b.db.Exec(b.insertString(m), b.args...)
 	if err != nil {
 		return 0, err
@@ -245,8 +246,9 @@ func (b *Builder) Create() (lastInsertId int64, err error) {
 }
 
 func (b *Builder) generateWhere(m map[string]interface{}) {
+	b.dialect.Count()
 	for k, v := range m {
-		b.Where(fmt.Sprintf("%s=?", k), v)
+		b.Where(fmt.Sprintf("%s=%s", k, b.dialect.Placeholder()), v)
 	}
 }
 
@@ -254,7 +256,7 @@ func (b *Builder) generateWhereForPK(m map[string]interface{}) {
 	pk := b.modelEntity.PK()
 	pval, has := m[pk]
 	if b.where == "" && has {
-		b.Where(fmt.Sprintf("%s=?", pk), pval)
+		b.Where(fmt.Sprintf("%s=%s", pk, b.dialect.Placeholder()), pval)
 		delete(m, pk)
 	}
 }

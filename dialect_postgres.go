@@ -1,7 +1,10 @@
 package gosql
 
+import "strconv"
+
 type postgresDialect struct {
 	commonDialect
+	count int
 }
 
 func init() {
@@ -10,4 +13,13 @@ func init() {
 
 func (postgresDialect) GetName() string {
 	return "postgres"
+}
+
+func (p *postgresDialect) Placeholder() string {
+	p.count++
+	return "$" + strconv.Itoa(p.count)
+}
+
+func (p *postgresDialect) Count() {
+	p.count = 0
 }
